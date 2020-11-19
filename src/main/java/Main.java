@@ -7,7 +7,6 @@ public class Main {
         System.out.println("Démo JUNIT");
 
         TestRunner runner = new TestRunner();
-
         runner.runAndPrint(new IntegerTests());
 
     }

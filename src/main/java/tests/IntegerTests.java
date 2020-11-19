@@ -15,10 +15,15 @@ public class IntegerTests extends TestSuite {
     }
 
     private static class AddIntegers extends TestCase {
+        private int x,y = 0;
+
+        @Override protected void setUp() {
+            x = 1;
+            y = 1;
+        }
+
         @Override
         protected void test() {
-            int x = 1;
-            int y=1;
             assertEquals(2, x + y);
         }
     }
