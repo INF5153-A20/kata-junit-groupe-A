@@ -1,4 +1,5 @@
 import tests.*;
+import uutf.TestCase;
 import uutf.TestRunner;
 
 public class Main {
@@ -7,7 +8,13 @@ public class Main {
         System.out.println("Démo JUNIT");
 
         TestRunner runner = new TestRunner();
-        runner.runAndPrint(new IntegerTests());
+        runner.runAndPrint(IntegerTests.build());
+
+        System.out.println("Démo Single Test");
+        runner = new TestRunner();
+        TestCase t = new AddTwoIntegers();
+        t.initialize("pouet");
+        runner.runAndPrint(t);
 
     }
 
