@@ -1,8 +1,6 @@
 import tests.*;
 import uutf.TestRunner;
 
-import static uutf.Assertions.*;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -10,11 +8,8 @@ public class Main {
 
         TestRunner runner = new TestRunner();
 
-        runner.add(new AddIntegers());
-        runner.add(new SubIntegers());
-        runner.add(new ThrowAnException());
+        runner.runAndPrint(new IntegerTests());
 
-        runner.run();
     }
 
 }
