@@ -1,5 +1,6 @@
 import tests.*;
 import uutf.TestCase;
+import uutf.TestFactory;
 import uutf.TestRunner;
 
 public class Main {
@@ -8,7 +9,8 @@ public class Main {
         System.out.println("Démo JUNIT");
 
         TestRunner runner = new TestRunner();
-        runner.runAndPrint(IntegerTests.build());
+        TestFactory scanner = new TestFactory();
+        runner.runAndPrint(scanner.scan(IntegerTests.class));
 
         System.out.println("Démo Single Test");
         runner = new TestRunner();

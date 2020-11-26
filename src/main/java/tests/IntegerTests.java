@@ -15,24 +15,16 @@ public class IntegerTests extends TestCase {
         y = 1;
     }
 
-    public void addTwoNumbers() {
+    public void test_addTwoNumbers() {
         assertEquals(2, x + y);
     }
 
-    public void subTwoNumbers() {
+    public void test_subTwoNumbers() {
         assertEquals(2, x - y);
     }
 
-    public void throwAnException() {
+    public void test_throwAnException() {
         throw new RuntimeException("pouet");
-    }
-
-    public static Test build() {
-        TestSuite suite = new TestSuite();
-        suite.addCase(new IntegerTests().initialize("addTwoNumbers"));
-        suite.addCase(new IntegerTests().initialize("subTwoNumbers"));
-        suite.addCase(new IntegerTests().initialize("throwAnException"));
-        return suite;
     }
 
 }
