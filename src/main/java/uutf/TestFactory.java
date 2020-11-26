@@ -3,11 +3,11 @@ package uutf;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-public class TestFactory {
+public abstract class TestFactory {
 
-    private static final String TEST_NAME_PREFIX = "test_";
 
-    public Test scan(Class klass) {
+
+    public final Test scan(Class klass) {
         if( ! isTestClass(klass))
             throw new IllegalArgumentException(klass.getCanonicalName() + " must be a test class");
         return extractTests(klass);
@@ -20,7 +20,7 @@ public class TestFactory {
     private Test extractTests(Class klass) {
         TestSuite suite = new TestSuite();
         for (Method m: klass.getMethods()) {
-            if(m.getName().startsWith(TEST_NAME_PREFIX)) {
+            if(isTestMethod(m)) {
                 try {
                     buildTestCase(suite, klass, m);
                 } catch(Exception e) {
@@ -31,6 +31,8 @@ public class TestFactory {
         }
         return suite;
     }
+
+    protected abstract boolean isTestMethod(Method m);
 
     private void buildTestCase(TestSuite suite, Class klass, Method m)
             throws NoSuchMethodException, IllegalAccessException,
